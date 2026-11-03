@@ -1,0 +1,795 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+
+<title>Renu Prabha Gurusamy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap">
+
+<style>
+/* Layout: sticky nav, full-bleed hero, alternating project cards */
+:root {
+  --bg: #F7F8FA;
+  --surface: #FFFFFF;
+  --fg: #111827;
+  --fg-2: #4B5563;
+  --fg-3: #9CA3AF;
+  --accent: #0F7B6C;
+  --accent-light: #E6F4F1;
+  --accent-2: #1D4ED8;
+  --border: #E5E7EB;
+  --hero-bg: #0D1F2D;
+  --hero-fg: #F0F9FF;
+  --hero-accent: #2DD4BF;
+  --tag-bg: #EFF6FF;
+  --tag-fg: #1D4ED8;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1117;
+    --surface: #161B22;
+    --fg: #E6EDF3;
+    --fg-2: #8B949E;
+    --fg-3: #484F58;
+    --accent: #2DD4BF;
+    --accent-light: #0D2D2A;
+    --accent-2: #60A5FA;
+    --border: #21262D;
+    --hero-bg: #010409;
+    --hero-fg: #F0F9FF;
+    --hero-accent: #2DD4BF;
+    --tag-bg: #1C2A47;
+    --tag-fg: #60A5FA;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1117;
+  --surface: #161B22;
+  --fg: #E6EDF3;
+  --fg-2: #8B949E;
+  --fg-3: #484F58;
+  --accent: #2DD4BF;
+  --accent-light: #0D2D2A;
+  --accent-2: #60A5FA;
+  --border: #21262D;
+  --hero-bg: #010409;
+  --hero-fg: #F0F9FF;
+  --hero-accent: #2DD4BF;
+  --tag-bg: #1C2A47;
+  --tag-fg: #60A5FA;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding-block: 14px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 101;
+  background: var(--surface);
+}
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.nav-logo {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  color: var(--fg-2);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* HERO */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-fg);
+  padding-block: 80px 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hero-accent);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 300;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin-bottom: 12px;
+}
+.hero h1 strong {
+  font-weight: 600;
+  color: var(--hero-accent);
+}
+.hero-sub {
+  font-size: 17px;
+  color: rgba(240,249,255,0.65);
+  max-width: 560px;
+  margin-bottom: 36px;
+  line-height: 1.65;
+}
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.chip {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(45,212,191,0.35);
+  color: rgba(240,249,255,0.75);
+  background: rgba(45,212,191,0.08);
+}
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.stat-num {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--hero-accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 13px;
+  color: rgba(240,249,255,0.5);
+  margin-top: 4px;
+}
+
+/* SECTIONS */
+.section {
+  padding-block: 72px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 600;
+  line-height: 1.25;
+  text-wrap: balance;
+  margin-bottom: 40px;
+  color: var(--fg);
+}
+
+/* PROJECT CARDS */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 24px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.card-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--fg-3);
+  letter-spacing: 0.08em;
+}
+.card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1.35;
+}
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.card-block-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: 4px;
+}
+.card-block p {
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.6;
+}
+.card-result {
+  background: var(--accent-light);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.card-result .card-block-label { color: var(--accent); }
+.card-result p { color: var(--fg); font-size: 14px; }
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+}
+
+/* SKILLS */
+.skills-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 32px;
+}
+.skill-group h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.skill-list li {
+  font-size: 14px;
+  color: var(--fg-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.skill-list li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* EXPERIENCE */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid var(--border);
+  padding-left: 28px;
+  margin-left: 8px;
+}
+.exp-item {
+  position: relative;
+  padding-bottom: 36px;
+}
+.exp-item:last-child { padding-bottom: 0; }
+.exp-item::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+.exp-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.exp-company {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--fg);
+}
+.exp-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--fg-3);
+  margin-left: auto;
+}
+.exp-role {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.exp-desc {
+  font-size: 14px;
+  color: var(--fg-2);
+  line-height: 1.65;
+}
+
+/* CONTACT */
+.contact-section {
+  background: var(--hero-bg);
+  color: var(--hero-fg);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+.contact-heading {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.contact-heading strong { font-weight: 600; color: var(--hero-accent); }
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(240,249,255,0.7);
+}
+.contact-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(45,212,191,0.12);
+  border: 1px solid rgba(45,212,191,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.contact-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: rgba(240,249,255,0.85);
+  user-select: all;
+}
+
+/* copy button */
+.copy-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--hero-accent);
+  font-size: 11px;
+  font-family: 'DM Mono', monospace;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.copy-btn:hover { background: rgba(45,212,191,0.12); }
+
+/* divider */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hero { padding-block: 56px 52px; }
+  .hero-stats { gap: 24px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .exp-item::before { left: -34px; }
+}
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Renu Prabha G.</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">SQL · Snowflake · Power BI · MicroStrategy · Data Modeling · KPI Analytics</p>
+    <h1>Senior BI Analyst &amp;<br><strong>Data Modelling Expert</strong></h1>
+    <p class="hero-sub">7+ years transforming complex business requirements into scalable data models, standardised KPIs, and executive dashboards. Expertise in SQL, Snowflake, Power BI and MicroStrategy — with a track record of stakeholder collaboration and source-to-target reconciliation across manufacturing and supply chain domains.</p>
+    <div class="hero-chips">
+      <span class="chip">SQL Server</span>
+      <span class="chip">Snowflake</span>
+      <span class="chip">Power BI</span>
+      <span class="chip">MicroStrategy</span>
+      <span class="chip">Azure Databricks</span>
+      <span class="chip">DAX</span>
+      <span class="chip">KPI Development</span>
+      <span class="chip">Data Modeling</span>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div>
+        <div class="stat-num">10</div>
+        <div class="stat-label">Pages in flagship dashboard</div>
+      </div>
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">SQL queries optimised</div>
+      </div>
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">MNCs worked at</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects &amp; Case Studies</h2>
+    <div class="projects-grid">
+
+      <div class="card">
+        <div class="card-num">01 / Manufacturing P&amp;L Analytics</div>
+        <h3>10-Page Estimated vs Actual P&amp;L Platform for a Packaging Manufacturer</h3>
+        <div class="card-row">
+          <div class="card-block">
+            <div class="card-block-label">Problem</div>
+            <p>The client — a print and packaging manufacturer serving US beauty brands — had no unified way to compare estimated vs actual revenue, cost, and margin across jobs, customers, and work centres. Downtime and make-ready data were tracked manually, with no trend visibility.</p>
+          </div>
+          <div class="card-block">
+            <div class="card-block-label">Solution</div>
+            <p>Built a 10-page Power BI report covering: Estimated vs Actual profit and margin by end market; Revenue trend with variance; Job-level drillthrough to work-centre cost breakdown; Customer and job profitability; Work Centre cost, scrap, and labor efficiency; MTD/PMTD Downtime and Make Ready with equipment-level detail; Invoice Margin and Domestic Outsource margin analysis by year.</p>
+          </div>
+          <div class="card-result">
+            <div class="card-block-label">Result</div>
+            <p>Delivered a single self-service platform replacing multiple disconnected reports. Business users can filter by date, customer, job code, work centre, and status — and drill from summary to individual job cost breakdown in two clicks.</p>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">Drillthrough</span>
+          <span class="tag">Manufacturing KPIs</span>
+          <span class="tag">MTD/PMTD</span>
+          <span class="tag">Cost Analytics</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-num">02 / Specialty Pharma Analytics</div>
+        <h3>High-Impact Specialty Pharma Analytics Initiative</h3>
+        <div class="card-row">
+          <div class="card-block">
+            <div class="card-block-label">Problem</div>
+            <p>A specialty pharma client lacked a unified analytics layer to track Patient Journey, patient persistency, and market share. Without a structured data model, brand teams had no consistent view of critical performance metrics across the product lifecycle.</p>
+          </div>
+          <div class="card-block">
+            <div class="card-block-label">Solution</div>
+            <p>Spearheaded the end-to-end analytics initiative — built a robust star schema (6 dimensions + 3 facts) in SQL Server and delivered 8 dynamic Power BI pages with complex DAX measures including rolling 4-week, 12-week, and 52-week windows to unlock critical insights into Patient Journey, patient persistency, and market share.</p>
+          </div>
+          <div class="card-result">
+            <div class="card-block-label">Result</div>
+            <p>Gave the brand team a single, trusted analytics platform with real-time visibility into patient behaviour and market performance — replacing manual, disconnected reporting with standardised KPIs and time-intelligence DAX measures.</p>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Star Schema</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">Patient Journey</span>
+          <span class="tag">Patient Persistency</span>
+          <span class="tag">Rolling Windows</span>
+          <span class="tag">Market Share</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-num">03 / Azure Medallion Pipeline</div>
+        <h3>Built End-to-End Medallion Architecture for OTD and Labor Efficiency Reporting</h3>
+        <div class="card-row">
+          <div class="card-block">
+            <div class="card-block-label">Problem</div>
+            <p>Client needed reliable On-Time Delivery and Labor Efficiency reporting across multiple ERP systems with no consistent data pipeline in place.</p>
+          </div>
+          <div class="card-block">
+            <div class="card-block-label">Solution</div>
+            <p>Designed Bronze, Silver, and Gold layers in Azure Databricks ingesting from 5 source types including Radius ERP. Built ADF pipelines for automated ingestion, transformation, and Power BI refresh. Used dual date-logic DAX modelling for complex time intelligence.</p>
+          </div>
+          <div class="card-result">
+            <div class="card-block-label">Result</div>
+            <p>20+ production dashboards running on automated daily refresh. Eliminated manual reporting and gave business users self-service access to production insights without IT support.</p>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Azure Databricks</span>
+          <span class="tag">Azure Data Factory</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Python</span>
+          <span class="tag">ERP</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-num">04 / Production Tracking</div>
+        <h3>Consolidated 4 Standalone Reports into a Single Production Tracker</h3>
+        <div class="card-row">
+          <div class="card-block">
+            <div class="card-block-label">Problem</div>
+            <p>Business owners were switching between 4 separate reports — actual, planned, demand, and forecast — with different refresh timelines, making it difficult to get a single consistent view of production status.</p>
+          </div>
+          <div class="card-block">
+            <div class="card-block-label">Solution</div>
+            <p>Merged all four data sources into a single SQL stored procedure handling daily, weekly, and monthly refresh logic. Built one Power BI report with a unified view and decommissioned the four standalone reports.</p>
+          </div>
+          <div class="card-result">
+            <div class="card-block-label">Result</div>
+            <p>Eliminated report-switching overhead for business owners. The consolidated tracker became the single source of truth for production tracking across the team.</p>
+          </div>
+        </div>
+        <div class="card-tags">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Stored Procedures</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">Mixed Granularity</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section class="section skills-section" id="skills">
+  <div class="section-inner">
+    <p class="section-label">Capabilities</p>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>BI &amp; Analytics</h4>
+        <ul class="skill-list">
+          <li>Power BI Desktop &amp; Service</li>
+          <li>MicroStrategy</li>
+          <li>DAX &amp; Time Intelligence</li>
+          <li>KPI Development &amp; Metric Standardisation</li>
+          <li>Source-to-Target Reconciliation</li>
+          <li>Data Modeling (Star / Snowflake Schema)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Data Engineering</h4>
+        <ul class="skill-list">
+          <li>SQL Server (T-SQL, SSMS)</li>
+          <li>Snowflake (views, transformation, modelling)</li>
+          <li>Azure Databricks (Medallion Architecture)</li>
+          <li>Azure Data Factory</li>
+          <li>SSIS</li>
+          <li>Python (pandas, SQLAlchemy)</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>ERP &amp; Domain</h4>
+        <ul class="skill-list">
+          <li>SAP, Radius, IQMS, Everest</li>
+          <li>Supply Chain Analytics</li>
+          <li>OTD &amp; Labor Reporting</li>
+          <li>Manufacturing KPIs</li>
+          <li>Inventory &amp; Delivery Tracking</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Power Platform &amp; Other</h4>
+        <ul class="skill-list">
+          <li>Power Automate</li>
+          <li>Power Apps</li>
+          <li>SharePoint Lists</li>
+          <li>Stakeholder Management</li>
+          <li>Requirements Gathering</li>
+          <li>Agile / Scrum</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-company">Datum Solutions</span>
+          <span class="exp-period">Apr 2025 – Present</span>
+        </div>
+        <div class="exp-role">Senior BI Analyst (Contract) · Remote</div>
+        <p class="exp-desc">Built Medallion architecture in Azure Databricks, ADF pipelines, and 20+ Power BI dashboards for manufacturing clients. Developed standardised KPI frameworks and source-to-target reconciliation processes, enabling self-service reporting for business stakeholders.</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-company">Wipro</span>
+          <span class="exp-period">Jul 2021 – Jan 2023</span>
+        </div>
+        <div class="exp-role">Data Analyst · Chennai</div>
+        <p class="exp-desc">Spearheaded a high-impact Specialty Pharma analytics initiative — built a robust star schema (6 dimensions, 3 facts) in SQL Server and delivered 8 dynamic Power BI pages with complex DAX measures (rolling 4/12/52-week windows) covering Patient Journey, patient persistency, and market share. Also developed and optimised Snowflake views and SQL queries for large-scale supply chain datasets, and built 20+ executive Power BI dashboards for WIP reporting, delivery performance, and inventory turnover — standardising enterprise KPIs with stakeholders.</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-company">Cognizant Technology Solutions</span>
+          <span class="exp-period">Jul 2019 – Jul 2021</span>
+        </div>
+        <div class="exp-role">Programmer Analyst · Chennai</div>
+        <p class="exp-desc">Designed 50+ SQL queries for ETL from ERP and legacy systems. Built SSIS packages improving data load speed by 50%. Developed 10+ Power BI reports with DAX time intelligence and data validation processes to ensure source-to-target accuracy.</p>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <span class="exp-company">L&amp;T Infotech</span>
+          <span class="exp-period">Jan 2017 – Jul 2019</span>
+        </div>
+        <div class="exp-role">MicroStrategy Developer · Chennai</div>
+        <p class="exp-desc">Designed interactive MicroStrategy dashboards and Dossiers. Built intelligent cubes, derived attributes, and customized SQL through VLDB properties. Supported BO-to-MicroStrategy migration.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <p class="section-label" style="color: var(--hero-accent);">Get in Touch</p>
+    <div class="contact-grid">
+      <div>
+        <h2 class="contact-heading">Open to <strong>Senior BI Analyst,<br>Data Analytics Lead</strong><br>&amp; BI Consultant roles.</h2>
+      </div>
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div style="font-size:11px;color:rgba(240,249,255,0.4);margin-bottom:2px;">EMAIL</div>
+            <span class="contact-value">renuprabhagurusamy@gmail.com</span>
+            <button class="copy-btn" onclick="copyText('renuprabhagurusamy@gmail.com', this)">copy</button>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">☎</div>
+          <div>
+            <div style="font-size:11px;color:rgba(240,249,255,0.4);margin-bottom:2px;">PHONE</div>
+            <span class="contact-value">+91 8939149861</span>
+            <button class="copy-btn" onclick="copyText('+918939149861', this)">copy</button>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">🔗</div>
+          <div>
+            <div style="font-size:11px;color:rgba(240,249,255,0.4);margin-bottom:2px;">LINKEDIN</div>
+            <span class="contact-value">linkedin.com/in/renu-prabha-gurusamy</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div style="font-size:11px;color:rgba(240,249,255,0.4);margin-bottom:2px;">LOCATION</div>
+            <span class="contact-value">Chennai, Tamil Nadu · Remote-ready</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function copyText(text, btn) {
+  const original = btn.textContent;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = 'copied!';
+      setTimeout(() => btn.textContent = original, 1800);
+    }).catch(() => fallbackCopy(text, btn, original));
+  } else {
+    fallbackCopy(text, btn, original);
+  }
+}
+function fallbackCopy(text, btn, original) {
+  const el = document.createElement('textarea');
+  el.value = text;
+  el.style.position = 'fixed';
+  el.style.opacity = '0';
+  document.body.appendChild(el);
+  el.select();
+  try { document.execCommand('copy'); btn.textContent = 'copied!'; } catch(e) { btn.textContent = 'select ↑'; }
+  document.body.removeChild(el);
+  setTimeout(() => btn.textContent = original, 1800);
+}
+</script>
+
+</body></html>
